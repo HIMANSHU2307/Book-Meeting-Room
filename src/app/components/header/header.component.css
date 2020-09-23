@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background-color: #f6f6f6;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 13%;
+}
+
+.nav-link {
+  font-size: larger;
+  color: black;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.nav-link:hover {
+  color: gray;
+}
+
+h1 {
+  font-weight: 600;
+  margin: 10px 0px;
+  font-size: 24px;
+}

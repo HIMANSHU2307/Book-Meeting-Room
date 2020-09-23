@@ -1,0 +1,56 @@
+<div class="form-modal">
+  <div class="form-modal__box">
+    <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>User Name</label>
+        <input type="text" formControlName="userName" [ngClass]="{ 'invalid': submitted && f.userName.errors }" />
+        <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+          <div *ngIf="f.userName.errors.required">userName is required</div>
+        </div>
+      </div>
+      <div>
+        <label>Meeting Room</label>
+        <select formControlName="meetingRoom" [ngClass]="{ 'invalid': submitted && f.meetingRoom.errors }">
+          <option *ngFor="let room of meetingRoomList" [value]="room.id">{{room.name}}</option>
+        </select>
+        <div *ngIf="submitted && f.meetingRoom.errors" class="invalid-feedback">
+          <div *ngIf="f.meetingRoom.errors.required">Meeting Room is required</div>
+        </div>
+      </div>
+      <div>
+        <label>Meeting Date</label>
+        <input type="date" formControlName="date" [ngClass]="{ 'invalid': submitted && f.date.errors }" />
+        <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+          <div *ngIf="f.date.errors.required">Date is required</div>
+        </div>
+      </div>
+      <div class="time-section">
+        <div>
+          <label>Meeting Start From</label>
+          <input type="time" formControlName="timeFrom" [ngClass]="{ 'invalid': submitted && f.timeFrom.errors }" />
+          <div *ngIf="submitted && f.timeFrom.errors" class="invalid-feedback">
+            <div *ngIf="f.timeFrom.errors.required">Time is required</div>
+          </div>
+        </div>
+        <div>
+          <label>Meeting Start To</label>
+          <input type="time" formControlName="timeTo" [ngClass]="{ 'invalid': submitted && f.timeTo.errors }" />
+          <div *ngIf="submitted && f.timeTo.errors" class="invalid-feedback">
+            <div *ngIf="f.timeTo.errors.required">Time is required</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <label>Agenda</label>
+        <textarea type="text" formControlName="agenda" [ngClass]="{ 'invalid': submitted && f.agenda.errors }"></textarea>
+        <div *ngIf="submitted && f.agenda.errors" class="invalid-feedback">
+          <div *ngIf="f.agenda.errors.required">Agenda is required</div>
+        </div>
+      </div>
+      <div>
+        <button class="Btn">Book Meeting</button>
+      </div>
+    </form>
+  </div>
+
+</div>

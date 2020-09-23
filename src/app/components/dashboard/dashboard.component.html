@@ -1,0 +1,3 @@
+<button class="Btn" (click)="toBookMeeting = true" >Book Meeting</button>
+
+<app-meeting-form *ngIf="toBookMeeting" (closeModal)="toBookMeeting = false"></app-meeting-form>

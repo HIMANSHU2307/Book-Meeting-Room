@@ -1,0 +1,29 @@
+<main>
+  <form class="login-form"  name="form" (ngSubmit)="onSubmit()">
+    <div>
+      <h1 class="login-form__header">
+        BOOK A MEETING ROOM
+      </h1>
+    </div>
+    <div class="login-form__input">
+      <div>
+        <label for="userName">User Name</label>
+        <input class="form-input" type="text" id="userName" name="userName" [(ngModel)]="userName" placeholder="User Name"
+          [ngClass]="(submitted && !userName) ? 'invalid' : 'form-input'">
+      </div>
+      <div>
+        <label for="userName">Password</label>
+        <input class="form-input" type="password" id="password" name="password" [(ngModel)]="password" placeholder="Password"
+        [ngClass]="(submitted && !password) ? 'invalid' : 'form-input'">
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="Btn">Login</button>
+    </div>
+    <div>
+      <p><strong>User Name: TestUser</strong></p>
+      <p><strong>Password: Password123</strong></p>
+    </div>
+  </form>
+
+</main>
