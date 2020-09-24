@@ -63,3 +63,46 @@ input, select, textarea {
   font-size: small;
   margin-bottom: 20px;
 }
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__box {
+  background-color: white;
+  width: 700px;
+  min-height: 300px;
+  /* max-height: 700px; */
+  overflow-y: auto;
+  z-index: 1001;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__box_header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.modal__box_header button {
+  width: 30px;
+  height: 30px;
+}
+
+.container {
+  width: 80vw;
+  margin: auto;
+  padding: 20px;
+}

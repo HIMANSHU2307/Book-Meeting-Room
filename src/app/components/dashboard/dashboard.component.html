@@ -1,3 +1,24 @@
-<button class="Btn" (click)="toBookMeeting = true" >Book Meeting</button>
+<div class="container">
+  <app-user-meeting-list
+   [title]="userListTitle"
+   [isUserMeeting]="true"
+   [allMeetings]="allMeetings">
+  </app-user-meeting-list>
+  <button class="Btn"
+    (click)="toBookMeeting = true" >
+    Book Meeting
+  </button>
+  <app-user-meeting-list
+    [title]="roomListTitle"
+    [isUserMeeting]="false"
+    [meetingRoomList]="meetingRoomList"
+    [allMeetings]="allMeetings">
+  </app-user-meeting-list>
+</div>
 
-<app-meeting-form *ngIf="toBookMeeting" (closeModal)="toBookMeeting = false"></app-meeting-form>
+<app-meeting-form
+  *ngIf="toBookMeeting"
+  (closeModal)="toBookMeeting = false"
+  [meetingRoomList]="meetingRoomList"
+  [allMeetings]="allMeetings"
+  ></app-meeting-form>

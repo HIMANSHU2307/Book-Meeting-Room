@@ -1,3 +1,4 @@
+import { MeetingService } from './../../services/meeting.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -13,11 +14,12 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private meetingService: MeetingService
   ) { }
 
   ngOnInit() {
-    localStorage.removeItem('userName');
+    this.meetingService.userActivated.next('');
   }
 
   onSubmit() {
@@ -25,6 +27,8 @@ export class LoginComponent implements OnInit {
     if (this.validateDetail()) {
       this.submitted = false;
       localStorage.setItem('userName', this.userName);
+      this.meetingService.userActivated.next(this.userName);
+
       this.router.navigate(['dashboard']);
     }
 
@@ -34,8 +38,8 @@ export class LoginComponent implements OnInit {
     let valid = false;
     let Msg = '';
 
-    if (this.userName !== 'TestUser') {
-      Msg += 'User Name is incorrect';
+    if (this.userName == '') {
+      Msg += 'User Name is required';
     }
 
     if (this.password !== 'Password123') {

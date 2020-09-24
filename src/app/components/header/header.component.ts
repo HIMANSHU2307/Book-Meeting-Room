@@ -18,9 +18,6 @@ export class HeaderComponent implements OnInit {
   }
 
   getUserName() {
-    debugger;
-    this.meetingService.GetUserName
-      .subscribe(data => this.userName = data.toString());
+    this.userName = this.meetingService.GetUserName();
   }
-
 }
