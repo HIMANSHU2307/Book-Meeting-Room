@@ -8,5 +8,12 @@ if (environment.production) {
   enableProdMode();
 }
 
+// to Strip all the console.log in the production
+if (environment.production) {
+  if (window) {
+    window.console.log = function () { };
+  }
+}
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

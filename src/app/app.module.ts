@@ -12,7 +12,6 @@ import { LoginComponent } from './components/login/login.component';
 import { UserMeetingListComponent } from './components/user-meeting-list/user-meeting-list.component';
 import { MeetingFormComponent } from './components/meeting-form/meeting-form.component';
 import { RoomListComponent } from './components/room-list/room-list.component';
-import { RoomMeetingListComponent } from './components/room-meeting-list/room-meeting-list.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { RoomMeetingListComponent } from './components/room-meeting-list/room-me
     LoginComponent,
     UserMeetingListComponent,
     MeetingFormComponent,
-    RoomListComponent,
-    RoomMeetingListComponent
+    RoomListComponent
   ],
   imports: [
     BrowserModule,

@@ -44,7 +44,7 @@ export class UserMeetingListComponent implements OnInit {
   }
 
   getMeetingByuser() {
-    this.meetingList = this.allMeetings.filter( el => this.userName === el.userName);
+    this.meetingList = this.allMeetings.filter( el => this.userName === el.userName).sort( (a, b) => b.date - a.date);
   }
 
   deleteMeeting(id) {

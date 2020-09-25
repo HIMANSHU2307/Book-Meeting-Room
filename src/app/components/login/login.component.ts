@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.meetingService.userActivated.next('');
+    localStorage.setItem('userName', '');
   }
 
   onSubmit() {

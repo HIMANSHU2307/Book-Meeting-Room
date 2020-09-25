@@ -106,7 +106,6 @@ export class MeetingFormComponent implements OnInit {
 
   searchForRooms() {
     let result1 = [];
-    let result2 = [];
     let exemptedRooms = [];
     const date = this.meetingForm.get('date').value;
     const timeFrom = this.meetingForm.get('timeFrom').value;
@@ -114,12 +113,15 @@ export class MeetingFormComponent implements OnInit {
 
     // Main Operation
     if ( date &&  timeFrom && timeTo) {
-      result1 = this.allMeetings.filter( el => date == el.date);
 
-      result2 = result1.filter( el => ((timeFrom >= el.timeFrom && timeFrom <= el.timeTo)
-        || (timeTo >= el.timeFrom && timeTo <= el.timeTo)));
+      result1 = this.allMeetings.filter( el => {
+        if ( date == el.date ) {
+          return ((timeFrom >= el.timeFrom && timeFrom <= el.timeTo)
+            || (timeTo >= el.timeFrom && timeTo <= el.timeTo));
+        }
+      });
 
-      for (let x of result2) {
+      for (let x of result1) {
         exemptedRooms.push(x.meetingRoom * 1);
       }
       exemptedRooms = exemptedRooms.filter((el, index) => exemptedRooms.indexOf(el) === index);
@@ -130,9 +132,8 @@ export class MeetingFormComponent implements OnInit {
         }
       }
 
-      console.log(result2, exemptedRooms, this.availableRoomList, 'success');
+      console.log(result1, exemptedRooms, this.availableRoomList, 'success');
     }
   }
-
 }
 
