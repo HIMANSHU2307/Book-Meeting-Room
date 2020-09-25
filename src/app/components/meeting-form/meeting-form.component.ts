@@ -76,7 +76,7 @@ export class MeetingFormComponent implements OnInit {
   }
 
   checkTime(e) {
-
+    this.availableRoomList = [];
     let startTime = this.meetingForm.get('timeFrom').value ? this.meetingForm.get('timeFrom').value.split(':') : [];
     let endTime = this.meetingForm.get('timeTo').value ? this.meetingForm.get('timeTo').value.split(':') : [];
 
