@@ -22,10 +22,8 @@ export class AppComponent {
   ngOnInit() {
     this.userName = localStorage.getItem('userName');
     this.userSubscription = this.meetingService.userActivated.subscribe((userName: string) => {
-      debugger;
       this.userName = userName;
       this.cdRef.detectChanges();
-      debugger;
 
     });
     if (!localStorage.getItem('userName')) {

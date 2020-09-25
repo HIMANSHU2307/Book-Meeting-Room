@@ -54,8 +54,6 @@ export class MeetingFormComponent implements OnInit {
       return;
     }
     let id = uuidv4();
-    console.log(id);
-    debugger;
     this.meetingObj.id = id;
     this.meetingObj.userName = this.meetingForm.get('userName').value;
     this.meetingObj.date = this.meetingForm.get('date').value;
@@ -66,7 +64,6 @@ export class MeetingFormComponent implements OnInit {
 
     this.meetingService.AddRoomMeeting(this.meetingObj);
 
-    console.log(this.meetingObj);
     this.closeModal.emit();
   }
 
@@ -82,8 +79,6 @@ export class MeetingFormComponent implements OnInit {
   }
 
   checkTime(e) {
-    console.log(this.meetingForm.get('timeFrom').value, this.meetingForm.get('timeTo').value);
-    debugger;
     if ((this.meetingForm.get('timeTo').value < '09:00' || this.meetingForm.get('timeTo').value > '18:00')
       || (this.meetingForm.get('timeFrom').value < '09:00' || this.meetingForm.get('timeFrom').value > '18:00')
     ) {
@@ -133,8 +128,6 @@ export class MeetingFormComponent implements OnInit {
           this.availableRoomList.push(x);
         }
       }
-
-      console.log(result1, exemptedRooms, this.availableRoomList, 'success');
     }
   }
 }

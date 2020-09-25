@@ -25,8 +25,6 @@ export class MeetingService {
     const allMeetings = localStorage.getItem('allMeetings') ? JSON.parse(localStorage.getItem('allMeetings')) : null;
     allMeetings ? this.allRoomMeetings = allMeetings : this.allRoomMeetings = [];
     this.allMeetings.next(this.allRoomMeetings);
-
-    console.log(this.allRoomMeetings, 'service');
     return this.allRoomMeetings;
   }
 

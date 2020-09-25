@@ -26,7 +26,6 @@ export class UserMeetingListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log();
   }
 
   ngOnChanges() {
@@ -40,7 +39,6 @@ export class UserMeetingListComponent implements OnInit {
     } else {
       this.getMeetingByRoom();
     }
-    console.log(this.meetingList);
   }
 
   getMeetingByuser() {
