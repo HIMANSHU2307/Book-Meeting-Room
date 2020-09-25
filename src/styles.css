@@ -106,3 +106,13 @@ input, select, textarea {
   margin: auto;
   padding: 20px;
 }
+
+@media (max-width: 768px) {
+  .modal__box {
+    margin: 20px;
+  }
+  .container {
+    width: 90vw;
+    padding: 10px;
+  }
+}

@@ -88,7 +88,6 @@ export class MeetingFormComponent implements OnInit {
       });
       return;
     }
-    debugger;
     if (((endTime[0] * 1) < 9 || (endTime[0] * 1) > 18)
       || ((startTime[0] * 1 < 9) || (startTime[0] * 1) > 18)
     ) {
@@ -114,7 +113,6 @@ export class MeetingFormComponent implements OnInit {
 
     // Main Operation
     if ( date &&  timeFrom && timeTo) {
-
       result1 = this.allMeetings.filter( meeting => {
         if ( date == meeting.date ) {
           return ((timeFrom >= meeting.timeFrom && timeFrom < meeting.timeTo)
@@ -145,12 +143,11 @@ export class MeetingFormComponent implements OnInit {
   }
 
   isEndTimeValid() {
-    const startTime = this.meetingForm.get('timeFrom').value.split(':');
-    const endTime = this.meetingForm.get('timeTo').value.split(':');
+    const startTime = this.meetingForm.get('timeFrom').value ? this.meetingForm.get('timeFrom').value.split(':') : [];
+    const endTime = this.meetingForm.get('timeTo').value ? this.meetingForm.get('timeTo').value.split(':') : [];
 
     let isValid = true;
-    debugger;
-    if ( (startTime[0]*1 > endTime[0]*1) || (startTime[0] == endTime[0] && (endTime[1] - startTime[1] < 30))) {
+    if ( ((startTime[0] * 1) > (endTime[0] * 1)) || (startTime[0] == endTime[0] && ((endTime[1] - startTime[1]) < 30))) {
       alert('Start time should be 30 minutes prior to end time');
       this.meetingForm.patchValue({
               timeTo: ''

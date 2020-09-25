@@ -2,34 +2,40 @@
   <h2>{{title}}</h2>
   <div *ngIf="meetingRoomList.length">
     <label>Select Meeting Room</label>
-    <select style="width: 50%" [(ngModel)]="currentRoom" (change)="getMeetingByRoom()">
+    <select class="meeting-list__room-list" [(ngModel)]="currentRoom" (change)="getMeetingByRoom()">
       <option *ngFor="let room of meetingRoomList" [value]="room.id" >{{room.name}}</option>
     </select>
   </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Sr No</th>
-        <th scope="col">User Name</th>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-        <th scope="col">Room</th>
-      </tr>
-    </thead>
-    <br>
-    <tbody>
-      <tr *ngFor="let meeting of meetingList; let i = index;">
-        <th scope="row">{{i+1}}</th>
-        <td>{{meeting.userName}}</td>
-        <td>{{meeting.date}}</td>
-        <td>{{meeting.timeFrom}} - {{meeting.timeTo}}</td>
-        <td>Room #{{meeting.meetingRoom}}</td>
-        <td >
-          <button class="delete" *ngIf="isUserMeeting" (click)="deleteMeeting(meeting.id)" >
+  <div class="meeting-list__table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sr No</th>
+          <th scope="col">User Name</th>
+          <th scope="col">Agenda</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Room</th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        <tr *ngFor="let meeting of meetingList; let i = index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{meeting.userName}}</td>
+          <td>{{meeting.agenda}}</td>
+          <td>{{meeting.date}}</td>
+          <td>{{meeting.timeFrom}} - {{meeting.timeTo}}</td>
+          <td>Room #{{meeting.meetingRoom}} <button class="delete" *ngIf="isUserMeeting" (click)="deleteMeeting(meeting.id)" >
             Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </button></td>
+          <!-- <td >
+            <button class="delete" *ngIf="isUserMeeting" (click)="deleteMeeting(meeting.id)" >
+              Delete
+            </button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

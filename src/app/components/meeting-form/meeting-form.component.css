@@ -12,3 +12,12 @@ input[type="time"] {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .time-section {
+    flex-direction: column;
+  }
+
+  .time-section > div {
+    width: 100%;
+  }
+}

@@ -26,26 +26,27 @@
             <div *ngIf="f.date.errors.required">Date is required</div>
           </div>
         </div>
-        <div>
-          <label>Meeting Start Time</label>
+        <div *ngIf="this.meetingForm.get('date').value">
+          <label>Start Time</label>
           <input type="time" formControlName="timeFrom" [ngClass]="{ 'invalid': submitted && f.timeFrom.errors }"
             min="09:00"
             max="17:30"
+            step='1800'
             (change)="checkTime($event)"/>
           <div *ngIf="submitted && f.timeFrom.errors" class="invalid-feedback">
             <div *ngIf="f.timeFrom.errors.required">Time is required</div>
           </div>
         </div>
-        <div>
-          <label>Meeting End Time</label>
+        <div  *ngIf="this.meetingForm.get('date').value">
+          <label>End Time</label>
           <input type="time" formControlName="timeTo" [ngClass]="{ 'invalid': submitted && f.timeTo.errors }"
-            (change)="checkTime($event)"/>
+            (change)="checkTime($event)" step='1800'/>
           <div *ngIf="submitted && f.timeTo.errors" class="invalid-feedback">
             <div *ngIf="f.timeTo.errors.required">Time is required</div>
           </div>
         </div>
       </div>
-      <div class="invalid-feedback">**time should be between 09:00AM and 06:00PM</div>
+      <div class="invalid-feedback">**time should be between 09:00AM and 06:00PM, Meeting should be of atleast 30 minutes</div>
       <div *ngIf="availableRoomList.length">
         <label>Meeting Room</label>
         <select formControlName="meetingRoom" [ngClass]="{ 'invalid': submitted && f.meetingRoom.errors }">

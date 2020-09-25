@@ -15,10 +15,17 @@ h2 {
 
 .table {
   width: 100%;
+  border-collapse: collapse;
 }
 
-.table td {
+.table td,th {
   text-align: center;
+  padding: 10px 20px
+
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2
 }
 
 .delete {
@@ -27,4 +34,20 @@ h2 {
   background: transparent;
   outline: none;
   border: none;
+}
+
+.meeting-list__table {
+  width: 100%;
+  overflow-x:auto;
+  padding-bottom: 20px;
+}
+
+.meeting-list__room-list {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .meeting-list__room-list {
+    width: 100%;
+  }
 }
