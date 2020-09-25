@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UserMeetingListComponent } from './components/user-meeting-list/user-meeting-list.component';
 import { MeetingFormComponent } from './components/meeting-form/meeting-form.component';
 import { RoomListComponent } from './components/room-list/room-list.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { RoomListComponent } from './components/room-list/room-list.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MeetingService } from 'src/app/services/meeting.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-meeting-list',
@@ -20,13 +21,12 @@ export class UserMeetingListComponent implements OnInit {
 
 
   constructor(
-    private meetingService: MeetingService
+    private meetingService: MeetingService,
+    public datepipe: DatePipe
   ) { }
 
   ngOnInit() {
-    // this.meetingService.allMeetings.subscribe(data => this.allMeetings = data);
-    // console.log(this.allMeetings, 'allMeetings');
-    // this.getData();
+    console.log();
   }
 
   ngOnChanges() {
@@ -44,7 +44,10 @@ export class UserMeetingListComponent implements OnInit {
   }
 
   getMeetingByuser() {
-    this.meetingList = this.allMeetings.filter( el => this.userName === el.userName).sort( (a, b) => b.date - a.date);
+    this.meetingList = this.allMeetings.filter( el => this.userName === el.userName);
+    this.meetingList.sort((a, b) => {
+      return (new Date(a.date).getTime() / 1000) - (new Date(b.date).getTime() / 1000);
+    });
   }
 
   deleteMeeting(id) {

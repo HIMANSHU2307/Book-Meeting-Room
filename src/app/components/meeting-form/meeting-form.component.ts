@@ -55,6 +55,7 @@ export class MeetingFormComponent implements OnInit {
     }
     let id = uuidv4();
     console.log(id);
+    debugger;
     this.meetingObj.id = id;
     this.meetingObj.userName = this.meetingForm.get('userName').value;
     this.meetingObj.date = this.meetingForm.get('date').value;
@@ -82,6 +83,7 @@ export class MeetingFormComponent implements OnInit {
 
   checkTime(e) {
     console.log(this.meetingForm.get('timeFrom').value, this.meetingForm.get('timeTo').value);
+    debugger;
     if ((this.meetingForm.get('timeTo').value < '09:00' || this.meetingForm.get('timeTo').value > '18:00')
       || (this.meetingForm.get('timeFrom').value < '09:00' || this.meetingForm.get('timeFrom').value > '18:00')
     ) {
@@ -116,8 +118,8 @@ export class MeetingFormComponent implements OnInit {
 
       result1 = this.allMeetings.filter( el => {
         if ( date == el.date ) {
-          return ((timeFrom > el.timeFrom && timeFrom < el.timeTo)
-            || (timeTo > el.timeFrom && timeTo < el.timeTo));
+          return ((timeFrom >= el.timeFrom && timeFrom < el.timeTo)
+            || (timeTo >= el.timeFrom && timeTo < el.timeTo));
         }
       });
 

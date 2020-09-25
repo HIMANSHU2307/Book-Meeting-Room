@@ -24,7 +24,8 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.allMeetings = this.meetingService.GetAllMeetings();
+    this.allMeetings = this.meetingService.GetAllMeetings().filter(el => new Date(el.date).getTime() / 1000 > new Date().getTime() / 1000);
+
     this.meetingService.allMeetings.subscribe(data => this.allMeetings = data);
   }
 

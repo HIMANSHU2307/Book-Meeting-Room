@@ -24,30 +24,13 @@ export class MeetingService {
     this.allRoomMeetings = [];
     const allMeetings = localStorage.getItem('allMeetings') ? JSON.parse(localStorage.getItem('allMeetings')) : null;
     allMeetings ? this.allRoomMeetings = allMeetings : this.allRoomMeetings = [];
-    // apply filter on allmeeting to get the userMeetings
-    // console.log(this.allRoomMeetings, 'allMeetings');
-    // this.allMeetings.subscribe(data => console.log(data, 'data'));
     this.allMeetings.next(this.allRoomMeetings);
 
     console.log(this.allRoomMeetings, 'service');
     return this.allRoomMeetings;
   }
 
-  // GetUserMeetings(userName: string) {
-  //   const allMeetings = this.GetAllMeetings();
-  //   return allMeetings.filter( el => userName === el.userName);
-  //   // apply filter on allmeeting to get the userMeetings
-  // }
-
-  // GetRoomMeeting(room) {
-  //   const allMeetings = this.GetAllMeetings();
-  //   debugger;
-  //   return allMeetings.filter( el => room === el.meetingRoom*1);
-  //   // apply filter on allmeeting to get the specificRoomMeeting
-  // }
-
   AddRoomMeeting(meeting: Meeting) {
-    // this.GetAllMeetings();
     this.allRoomMeetings.push(meeting);
     localStorage.setItem('allMeetings', JSON.stringify(this.allRoomMeetings));
     this.GetAllMeetings();
