@@ -1,13 +1,13 @@
 <div class="container">
+  <button class="Btn"
+    (click)="toBookMeeting = true" >
+    Book Meeting
+  </button>
   <app-user-meeting-list
    [title]="userListTitle"
    [isUserMeeting]="true"
    [allMeetings]="allMeetings">
   </app-user-meeting-list>
-  <button class="Btn"
-    (click)="toBookMeeting = true" >
-    Book Meeting
-  </button>
   <app-user-meeting-list
     [title]="roomListTitle"
     [isUserMeeting]="false"
