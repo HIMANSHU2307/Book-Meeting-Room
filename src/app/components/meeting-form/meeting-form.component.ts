@@ -116,8 +116,8 @@ export class MeetingFormComponent implements OnInit {
 
       result1 = this.allMeetings.filter( el => {
         if ( date == el.date ) {
-          return ((timeFrom >= el.timeFrom && timeFrom <= el.timeTo)
-            || (timeTo >= el.timeFrom && timeTo <= el.timeTo));
+          return ((timeFrom > el.timeFrom && timeFrom < el.timeTo)
+            || (timeTo > el.timeFrom && timeTo < el.timeTo));
         }
       });
 
