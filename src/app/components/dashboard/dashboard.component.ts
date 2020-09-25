@@ -17,14 +17,12 @@ export class DashboardComponent implements OnInit {
   userListTitle = 'Your Upcoming Meetings';
   roomListTitle = 'Rooms Meeting Details';
 
-  userName = '';
-
   constructor(
     private meetingService: MeetingService
   ) { }
 
   ngOnInit() {
-    this.allMeetings = this.meetingService.GetAllMeetings().filter(el => new Date(el.date).getTime() / 1000 > new Date().getTime() / 1000);
+    this.allMeetings = this.meetingService.GetAllMeetings();
 
     this.meetingService.allMeetings.subscribe(data => this.allMeetings = data);
   }

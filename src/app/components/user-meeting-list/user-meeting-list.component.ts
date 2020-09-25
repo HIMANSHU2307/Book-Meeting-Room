@@ -42,7 +42,7 @@ export class UserMeetingListComponent implements OnInit {
   }
 
   getMeetingByuser() {
-    this.meetingList = this.allMeetings.filter( el => this.userName === el.userName);
+    this.meetingList = this.allMeetings.filter( meeting => this.userName === meeting.userName);
     this.meetingList.sort((a, b) => {
       return (new Date(a.date).getTime() / 1000) - (new Date(b.date).getTime() / 1000);
     });
@@ -54,6 +54,6 @@ export class UserMeetingListComponent implements OnInit {
   }
 
   getMeetingByRoom() {
-    this.meetingList = this.allMeetings.filter( el => this.currentRoom == el.meetingRoom);
+    this.meetingList = this.allMeetings.filter( meeting => this.currentRoom == meeting.meetingRoom);
   }
 }

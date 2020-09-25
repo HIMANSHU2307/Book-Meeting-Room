@@ -11,7 +11,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserMeetingListComponent } from './components/user-meeting-list/user-meeting-list.component';
 import { MeetingFormComponent } from './components/meeting-form/meeting-form.component';
-import { RoomListComponent } from './components/room-list/room-list.component';
 import { DatePipe } from '@angular/common';
 
 @NgModule({
@@ -21,8 +20,7 @@ import { DatePipe } from '@angular/common';
     DashboardComponent,
     LoginComponent,
     UserMeetingListComponent,
-    MeetingFormComponent,
-    RoomListComponent
+    MeetingFormComponent
   ],
   imports: [
     BrowserModule,
